@@ -53,18 +53,18 @@
                     @if ($paginator->currentPage() > 1)
                         @if ($paginator->currentPage() > ($paginator->onEachSide + 2))
                             <li class="page-item m-1">
-                                <a class="page-link rounded-3 px-3" href="{{ $paginator->url(1) }}" rel="prev" aria-label="@lang('pagination.previous')">1</a>
+                                <a class="page-link rounded-3" href="{{ $paginator->url(1) }}" rel="prev" aria-label="@lang('pagination.previous')">1</a>
                             </li>
                             @if ($paginator->onEachSide <= ($paginator->currentPage() - $paginator->onEachSide))
                                 @if ((($paginator->currentPage() - $paginator->onEachSide) - 1) === 2)
                                     <li class="page-item m-1">
-                                        <a class="page-link rounded-3 px-3" href="{{ $paginator->url((($paginator->currentPage() - $paginator->onEachSide) - 1)) }}" rel="prev" aria-label="@lang('pagination.previous')">
+                                        <a class="page-link rounded-3" href="{{ $paginator->url((($paginator->currentPage() - $paginator->onEachSide) - 1)) }}" rel="prev" aria-label="@lang('pagination.previous')">
                                             {{(($paginator->currentPage() - $paginator->onEachSide) - 1)}}
                                         </a>
                                     </li>
                                 @else
                                     <li class="page-item m-1" style="pointer-events: none" aria-label="@lang('pagination.previous')">
-                                        <span class="page-link rounded-3 px-2" aria-hidden="true">&middot;&middot;&middot;</span>
+                                        <span class="page-link rounded-3" aria-hidden="true">&middot;&middot;&middot;</span>
                                     </li>
                                 @endif
                             @endif
@@ -76,9 +76,9 @@
                         @if ($x > 0 && $x <= $paginator->lastPage())
                             <li class="page-item m-1 @if ($x === $paginator->currentPage()) active @endif" aria-disabled="true" aria-label="Page {{$x}}">
                                 @if ($x === $paginator->currentPage())
-                                    <span class="page-link rounded-3 px-3" aria-hidden="true">{{$x}}</span>
+                                    <span class="page-link rounded-3" aria-hidden="true">{{$x}}</span>
                                 @else
-                                    <a class="page-link rounded-3 px-3" href="{{ $paginator->url($x) }}" rel="prev" aria-label="Page {{$x}}">{{$x}}</a>
+                                    <a class="page-link rounded-3" href="{{ $paginator->url($x) }}" rel="prev" aria-label="Page {{$x}}">{{$x}}</a>
                                 @endif
                             </li>
                         @endif
@@ -89,24 +89,24 @@
                         @if ($paginator->currentPage() < ($paginator->lastPage() - $paginator->onEachSide - 1))
                             @if (($paginator->currentPage() + $paginator->onEachSide) + 1 === ($paginator->lastPage() - 1))
                                 <li class="page-item m-1">
-                                    <a class="page-link rounded-3 px-3" href="{{ $paginator->url($paginator->lastPage() - 1) }}" rel="page" aria-label="Page {{$paginator->lastPage() - 1}}}}">
+                                    <a class="page-link rounded-3" href="{{ $paginator->url($paginator->lastPage() - 1) }}" rel="page" aria-label="Page {{$paginator->lastPage() - 1}}}}">
                                         {{$paginator->lastPage() - 1}}
                                     </a>
                                 </li>
                             @else
                                 <li class="page-item m-1" style="pointer-events: none" aria-label="More next pages">
-                                    <span class="page-link rounded-3 px-2" aria-hidden="true">&middot;&middot;&middot;</span>
+                                    <span class="page-link rounded-3" aria-hidden="true">&middot;&middot;&middot;</span>
                                 </li>
                             @endif
                             <li class="page-item m-1">
-                                <a class="page-link rounded-3 px-3" href="{{ $paginator->url($paginator->lastPage()) }}" rel="last" aria-label="Last Page">
+                                <a class="page-link rounded-3" href="{{ $paginator->url($paginator->lastPage()) }}" rel="last" aria-label="Last Page">
                                     {{$paginator->lastPage()}}
                                 </a>
                             </li>
                         @else
                             @if ($paginator->currentPage() < ($paginator->lastPage() - $paginator->onEachSide))
                                 <li class="page-item m-1">
-                                    <a class="page-link rounded-3 px-3" href="{{ $paginator->url($paginator->lastPage()) }}" rel="last" aria-label="Last Page">
+                                    <a class="page-link rounded-3" href="{{ $paginator->url($paginator->lastPage()) }}" rel="last" aria-label="Last Page">
                                         {{$paginator->lastPage()}}
                                     </a>
                                 </li>
