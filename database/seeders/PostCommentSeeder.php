@@ -16,6 +16,6 @@ class PostCommentSeeder extends Seeder
      */
     public function run()
     {
-        PostComment::factory()->count(50)->create();
+        PostComment::factory()->count(1000)->create();
     }
 }
