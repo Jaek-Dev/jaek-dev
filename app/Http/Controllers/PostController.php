@@ -20,7 +20,7 @@ class PostController extends Controller
         // $posts = Post::where('type', '=', 'blog')->paginate(15);
         $posts = DB::table('posts as p')
                     ->join('post_categories as pc', 'p.category_id', '=', 'pc.id')
-                    // ->where('p.type', 'blog')
+                    ->where('p.type', 'blog')
                     ->select(
                         'p.*', 'pc.*', 
                         'p.slug as slug', 
