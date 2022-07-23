@@ -31,7 +31,7 @@ class Post extends Model
     public function post($parent_slug, $slug) {
         $post = $this->where('slug', $slug)->firstOrFail();
         if(!$post->category->id) \abort(404);
-        
+        // $post->comments()->paginate(10);
         return $post;
     }
 
