@@ -15,6 +15,6 @@ class PostCategorySeeder extends Seeder
      */
     public function run()
     {
-        PostCategory::factory()->count(\mt_rand(10, 20))->create();
+        PostCategory::factory()->count(\mt_rand(5, 10))->create();
     }
 }
