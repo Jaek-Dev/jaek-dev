@@ -13,11 +13,3 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-/**
- * Version 1.0 routes
- */
-Route::prefix('v1.0')->group(function () {
-    require_once __DIR__ . '/v1.0/authRoutes.php';
-    require_once __DIR__ . '/v1.0/productsRoutes.php';
-});
