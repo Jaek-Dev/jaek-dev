@@ -17,19 +17,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        // $posts = Post::where('type', '=', 'blog')->paginate(15);
-        $posts = DB::table('posts as p')
-                    ->join('post_categories as pc', 'p.category_id', '=', 'pc.id')
-                    ->where('p.type', 'blog')
-                    ->select(
-                        'p.*', 'pc.*', 
-                        'p.slug as slug', 
-                        'pc.slug as parent_slug', 
-                        'pc.name as category_name'
-                    )->orderBy('p.id', 'DESC')
+        $posts = Post::where('type', 'blog')
+                    ->orderBy('id', 'DESC')
                     ->paginate(16);
 
-        if(\count($posts->items()) < 1) \abort(404);
         return \view('pages.blog.index', \compact('posts'));
     }
 
@@ -63,7 +54,11 @@ class PostController extends Controller
     public function show(Post $post, $parent, $slug)
     {
         $info = $post->post($parent, $slug);
-        return \view('pages.blog.show', ['post' => $info]);
+        $comments = $info->comments()->orderBy('id', 'DESC')->paginate(20);
+        return \view('pages.blog.show', [
+            'post' => $info,
+            'post_comments' => $comments,
+        ]);
     }
 
     /**
